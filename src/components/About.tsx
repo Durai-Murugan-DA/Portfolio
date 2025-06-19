@@ -23,7 +23,6 @@ const About = () => {
       degree: "Master of Business Administration (MBA)",
       status: "Completed",
       year: "2025",
-      specialization: "Specialization: Marketing Management",
       icon: <GraduationCap className="w-6 h-6 text-sky-600" />
     },
     {
@@ -53,11 +52,7 @@ const About = () => {
             <p className="text-lg text-gray-700 leading-relaxed">
               My transition into data analytics through a hands-on internship at Novi Tech has equipped me 
               with practical skills in Power BI, SQL, Python, and advanced data visualization techniques. 
-              I specialize in creating clean, actionable analytics that drive real business impact.
-            </p>
-            
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Currently pursuing my MBA while actively seeking roles in data or business analysis, 
+              I specialize in creating clean, actionable analytics that drive real business impact. 
               I'm committed to continuous learning and applying cutting-edge analytical methods to 
               solve complex business challenges.
             </p>
@@ -77,9 +72,6 @@ const About = () => {
                         <div>
                           <h4 className="font-semibold text-gray-900">{edu.degree}</h4>
                           <p className="text-sky-600 font-medium">{edu.status}</p>
-                          {edu.specialization && (
-                            <p className="text-gray-600 text-sm mt-1">{edu.specialization}</p>
-                          )}
                         </div>
                         <span className="text-gray-500 font-medium">{edu.year}</span>
                       </div>
