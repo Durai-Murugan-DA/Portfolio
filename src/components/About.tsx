@@ -20,13 +20,14 @@ const About = () => {
 
   const education = [
     {
-      degree: "MBA in Business Administration",
-      status: "Ongoing",
+      degree: "Master of Business Administration (MBA)",
+      status: "Completed",
       year: "2025",
+      specialization: "Specialization: Marketing Management",
       icon: <GraduationCap className="w-6 h-6 text-sky-600" />
     },
     {
-      degree: "Bachelor's in Science",
+      degree: "Bachelor of Science (B.Sc.)",
       status: "Completed",
       year: "2023",
       icon: <GraduationCap className="w-6 h-6 text-sky-600" />
@@ -76,6 +77,9 @@ const About = () => {
                         <div>
                           <h4 className="font-semibold text-gray-900">{edu.degree}</h4>
                           <p className="text-sky-600 font-medium">{edu.status}</p>
+                          {edu.specialization && (
+                            <p className="text-gray-600 text-sm mt-1">{edu.specialization}</p>
+                          )}
                         </div>
                         <span className="text-gray-500 font-medium">{edu.year}</span>
                       </div>
