@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BarChart3, Database, Code, PresentationChart, TrendingUp, FileSpreadsheet } from "lucide-react";
+import { BarChart3, Database, Code, Presentation, TrendingUp, FileSpreadsheet } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -23,7 +23,7 @@ const Services = () => {
       tools: ["Python", "Pandas", "NumPy"]
     },
     {
-      icon: <PresentationChart className="w-12 h-12 text-sky-600" />,
+      icon: <Presentation className="w-12 h-12 text-sky-600" />,
       title: "Visualization Storytelling",
       description: "Create compelling data narratives through advanced visualization techniques that communicate insights effectively to stakeholders.",
       tools: ["Tableau", "Power BI", "Excel"]
