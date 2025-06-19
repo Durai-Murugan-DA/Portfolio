@@ -15,7 +15,7 @@ const Hero = () => {
           <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-r from-sky-400 to-sky-600 p-1 shadow-xl">
             <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
               <img 
-                src="/placeholder.svg" 
+                src="https://i.postimg.cc/vm0s0mfg/Whats-App-Image-2025-06-19-at-15-19-59-76636ccf.jpg" 
                 alt="Durai Murugan" 
                 className="w-44 h-44 rounded-full object-cover"
               />
