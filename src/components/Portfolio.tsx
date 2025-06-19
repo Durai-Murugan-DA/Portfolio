@@ -7,35 +7,35 @@ const Portfolio = () => {
   const projects = [
     {
       title: "HR Analytics Presence Insights",
-      description: "DAX-powered Power BI dashboard improving attendance trend visibility and workforce analytics for better decision making.",
-      tech: ["Power BI", "DAX", "Excel"],
-      image: "/placeholder.svg",
-      githubUrl: "#",
-      liveUrl: "#"
+      description: "Built a Power BI dashboard to analyze workforce attendance trends using Power Query and DAX. Automated data cleaning reduced manual work by 40%.",
+      tech: ["PowerBI", "DAX", "HRAnalytics"],
+      image: "https://i.postimg.cc/j5LGVtP3/workforce-analytics-20201.jpg",
+      githubUrl: "https://github.com/Durai-Murugan-DA/HR-Analytics-Presence-Insights",
+      liveUrl: "https://github.com/Durai-Murugan-DA/HR-Analytics-Presence-Insights"
     },
     {
       title: "COVID-19 Data Exploration",
-      description: "Comprehensive data cleaning, exploratory data analysis, and query-based insights using advanced SQL techniques.",
-      tech: ["SQL", "PostgreSQL", "Data Cleaning"],
-      image: "/placeholder.svg",
-      githubUrl: "#",
-      liveUrl: "#"
+      description: "Performed exploratory data analysis on COVID-19 datasets using SQL. Improved data quality by 35% through cleaning, joins, and aggregations.",
+      tech: ["SQL", "EDA", "DataCleaning"],
+      image: "https://i.postimg.cc/sgzdBFC1/istockphoto-1217649829-640x640.jpg",
+      githubUrl: "https://github.com/Durai-Murugan-DA/Covid-Data-Exploration",
+      liveUrl: "https://github.com/Durai-Murugan-DA/Covid-Data-Exploration"
     },
     {
       title: "Stock Market Predictive Analysis",
-      description: "Machine learning model development using Pandas and NumPy, achieving 73% accuracy in stock price predictions.",
-      tech: ["Python", "Pandas", "NumPy", "ML"],
-      image: "/placeholder.svg",
-      githubUrl: "#",
-      liveUrl: "#"
+      description: "Developed a machine learning model with Pandas and NumPy to forecast stock trends. Achieved 73% accuracy with improved feature engineering.",
+      tech: ["Python", "MachineLearning", "NumPy"],
+      image: "https://i.postimg.cc/xTMVTf7W/gettyimages-1380018401-640x640.jpg",
+      githubUrl: "https://github.com/Durai-Murugan-DA/Stock-Market-Predictive-Analysis",
+      liveUrl: "https://github.com/Durai-Murugan-DA/Stock-Market-Predictive-Analysis"
     },
     {
       title: "Passenger Experience Analysis",
-      description: "Interactive Tableau dashboard analyzing British Airways customer feedback with actionable insights for service improvement.",
-      tech: ["Tableau", "Excel", "Data Viz"],
-      image: "/placeholder.svg",
-      githubUrl: "#",
-      liveUrl: "#"
+      description: "Created an interactive Tableau dashboard analyzing British Airways customer reviews by region, time, and service metrics.",
+      tech: ["Tableau", "Excel", "DataViz"],
+      image: "https://i.postimg.cc/dQzKYkW2/1732785843686.jpg",
+      githubUrl: "https://github.com/Durai-Murugan-DA/Passenger-Experience-Analysis",
+      liveUrl: "https://github.com/Durai-Murugan-DA/Passenger-Experience-Analysis"
     }
   ];
 
@@ -53,7 +53,7 @@ const Portfolio = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+            <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden animate-fade-in">
               <div className="aspect-video bg-gradient-to-br from-sky-100 to-sky-200 relative overflow-hidden">
                 <img 
                   src={project.image} 
@@ -87,14 +87,16 @@ const Portfolio = () => {
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="flex items-center gap-2 border-sky-600 text-sky-600 hover:bg-sky-50"
+                    className="flex items-center gap-2 border-gray-600 text-gray-600 hover:bg-gray-50"
+                    onClick={() => window.open(project.githubUrl, '_blank')}
                   >
                     <Github className="w-4 h-4" />
-                    Code
+                    GitHub
                   </Button>
                   <Button 
                     size="sm"
                     className="flex items-center gap-2 bg-sky-600 hover:bg-sky-700"
+                    onClick={() => window.open(project.liveUrl, '_blank')}
                   >
                     <ExternalLink className="w-4 h-4" />
                     Live Demo
