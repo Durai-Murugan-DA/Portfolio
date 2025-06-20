@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -164,13 +163,12 @@ const Contact = () => {
             <CardContent>
               <form 
                 onSubmit={handleSubmit} 
-                action="https://formsubmit.co/duraijeeva2017@gmail.com"
+                action="https://formspree.io/f/xqabdpad"
                 method="POST"
                 className="space-y-6"
               >
-                {/* Hidden FormSubmit configuration fields */}
+                {/* Hidden field to disable captcha */}
                 <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_template" value="table" />
                 
                 <div>
                   <Label htmlFor="name" className="text-gray-700 font-medium">Name</Label>
