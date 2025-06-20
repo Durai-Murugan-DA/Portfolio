@@ -13,9 +13,10 @@ const Contact = () => {
     email: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic form validation
@@ -28,14 +29,35 @@ const Contact = () => {
       return;
     }
 
-    // Simulate form submission
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    });
+    setIsSubmitting(true);
 
-    // Reset form
-    setFormData({ name: "", email: "", message: "" });
+    try {
+      const formElement = e.target as HTMLFormElement;
+      const response = await fetch(formElement.action, {
+        method: 'POST',
+        body: new FormData(formElement),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        // Reset form
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -140,7 +162,16 @@ const Contact = () => {
               <CardTitle className="text-2xl font-semibold text-gray-900">Send Me a Message</CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form 
+                onSubmit={handleSubmit} 
+                action="https://formsubmit.co/duraijeeva2017@gmail.com"
+                method="POST"
+                className="space-y-6"
+              >
+                {/* Hidden FormSubmit configuration fields */}
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                
                 <div>
                   <Label htmlFor="name" className="text-gray-700 font-medium">Name</Label>
                   <Input
@@ -151,6 +182,7 @@ const Contact = () => {
                     onChange={handleInputChange}
                     className="mt-2 border-gray-300 focus:border-sky-600 focus:ring-sky-600"
                     placeholder="Your full name"
+                    required
                   />
                 </div>
 
@@ -164,6 +196,7 @@ const Contact = () => {
                     onChange={handleInputChange}
                     className="mt-2 border-gray-300 focus:border-sky-600 focus:ring-sky-600"
                     placeholder="your.email@example.com"
+                    required
                   />
                 </div>
 
@@ -177,15 +210,17 @@ const Contact = () => {
                     onChange={handleInputChange}
                     className="mt-2 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-sky-600 resize-none"
                     placeholder="Tell me about your project or opportunity..."
+                    required
                   />
                 </div>
 
                 <Button 
                   type="submit"
-                  className="w-full bg-sky-600 hover:bg-sky-700 text-white py-3 flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105"
+                  disabled={isSubmitting}
+                  className="w-full bg-sky-600 hover:bg-sky-700 text-white py-3 flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send className="w-4 h-4" />
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </CardContent>
